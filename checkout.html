@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Eating Healthy</title>
+</head>
+<body style="background: #f8f9f7; font-family: Arial, sans-serif; margin: 0; padding: 20px;">
+    
+    <div style="max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+        
+        <h1 style="color: #2d5f3f; margin-bottom: 30px;">Complete Your Order</h1>
+        
+        <!-- Main Product -->
+        <div style="background: #f8f9f7; padding: 20px; border-radius: 15px; margin-bottom: 30px; display: flex; align-items: center; gap: 20px;">
+            <img src="mainbook.png" alt="eBook" style="width: 80px; height: 100px; border-radius: 8px;">
+            <div style="flex: 1;">
+                <h3 style="margin: 0 0 5px 0;">Eating Healthy - Complete Guide eBook</h3>
+                <p style="margin: 0; color: #666;">Digital Download • Instant Access</p>
+            </div>
+            <div style="font-size: 1.5rem; font-weight: 700; color: #2d5f3f;">$19.99</div>
+        </div>
+
+        <!-- Upsell -->
+        <div style="background: linear-gradient(135deg, #fff8e1, #ffe8cc); border: 3px solid #ffa726; border-radius: 20px; padding: 30px; margin-bottom: 30px; position: relative;">
+            <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #ffd700, #ffed4e); color: #8b4513; padding: 8px 20px; border-radius: 30px; font-weight: 700; font-size: 0.85rem;">
+                👑 PREMIUM UPGRADE
+            </div>
+            
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h2 style="color: #d84315; margin-bottom: 10px;">🎉 Special One-Time Offer!</h2>
+                <p style="font-weight: 600;">Add the Video Course Bundle & Save 50%</p>
+            </div>
+
+            <div style="background: white; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+                <label style="display: flex; gap: 15px; cursor: pointer;">
+                    <input type="checkbox" id="upsellCheck" checked onchange="updateTotal()" style="width: 24px; height: 24px; cursor: pointer;">
+                    <div>
+                        <h3 style="color: #2d5f3f; margin: 0 0 10px 0;">Eating Healthy Video Course Bundle</h3>
+                        <p style="margin: 0 0 15px 0; color: #666;">6 Premium Video Modules • Lifetime Access</p>
+                        
+                        <div style="margin: 15px 0; font-size: 0.9rem; line-height: 1.8;">
+                            <div style="margin-bottom: 8px;">✓ Video 1: Make Eating Healthy a Lifestyle, Not a Duty</div>
+                            <div style="margin-bottom: 8px;">✓ Video 2: Benefits of Healthy Eating</div>
+                            <div style="margin-bottom: 8px;">✓ Video 3: Alkaline Food vs. Acidic Foods</div>
+                            <div style="margin-bottom: 8px;">✓ Video 4: Food Pyramid</div>
+                            <div style="margin-bottom: 8px;">✓ Video 5: Food Cholesterol</div>
+                            <div style="margin-bottom: 8px;">✓ Video 6: Types of Recommended Foods</div>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: 15px; margin-top: 15px;">
+                            <span style="text-decoration: line-through; color: #999; font-size: 1.2rem;">$39.99</span>
+                            <span style="font-size: 2rem; font-weight: 700; color: #d84315;">$19.99</span>
+                            <span style="background: #4caf50; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 700;">50% OFF</span>
+                        </div>
+                    </div>
+                </label>
+            </div>
+
+            <button onclick="skipUpsell()" style="width: 100%; padding: 12px; background: transparent; border: 2px solid #999; border-radius: 10px; color: #666; cursor: pointer; font-size: 0.9rem;">
+                No thanks, I'll skip this offer
+            </button>
+        </div>
+
+        <!-- Summary -->
+        <div style="background: #f8f9f7; padding: 20px; border-radius: 15px; margin-bottom: 20px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                <span>Eating Healthy eBook</span>
+                <span>$19.99</span>
+            </div>
+            <div id="upsellRow" style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                <span>Video Course Bundle <span style="background:#4caf50;color:white;padding:2px 8px;border-radius:10px;font-size:0.7rem;">50% OFF</span></span>
+                <span>$19.99</span>
+            </div>
+            <div style="border-top: 2px solid #ddd; margin-top: 15px; padding-top: 15px; display: flex; justify-content: space-between; font-size: 1.5rem; font-weight: 700; color: #2d5f3f;">
+                <span>Total</span>
+                <span id="totalPrice">$39.98</span>
+            </div>
+        </div>
+
+        <!-- Checkout Button -->
+        <button onclick="proceedPayment()" style="width: 100%; padding: 20px; background: #2d5f3f; color: white; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: 700; cursor: pointer;">
+            Proceed to Payment - <span id="btnTotal">$39.98</span>
+        </button>
+
+        <div style="text-align:center; margin-top:20px; color:#666; font-size:0.9rem;">
+            🔒 256-bit SSL Secure • 💳 All Payment Methods • ↩️ 30-Day Money Back
+        </div>
+    </div>
+
+    <script>
+        let upsellIncluded = true;
+        let popupShown = false;
+
+        function updateTotal() {
+            const checkbox = document.getElementById('upsellCheck');
+            upsellIncluded = checkbox.checked;
+            
+            const total = upsellIncluded ? 39.98 : 19.99;
+            document.getElementById('totalPrice').textContent = '$' + total.toFixed(2);
+            document.getElementById('btnTotal').textContent = '$' + total.toFixed(2);
+            document.getElementById('upsellRow').style.display = upsellIncluded ? 'flex' : 'none';
+        }
+
+        function skipUpsell() {
+            if (!popupShown) {
+                popupShown = true;
+                showDiscountPopup();
+            } else {
+                document.getElementById('upsellCheck').checked = false;
+                updateTotal();
+            }
+        }
+
+        function showDiscountPopup() {
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.id = 'discountOverlay';
+            overlay.style.cssText = 'position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; display: flex; align-items: center; justify-content: center;';
+            
+            // Create popup
+            const popup = document.createElement('div');
+            popup.style.cssText = 'background: white; border-radius: 20px; padding: 40px; max-width: 500px; width: 90%; text-align: center; position: relative; box-shadow: 0 10px 50px rgba(0,0,0,0.3);';
+            
+            popup.innerHTML = `
+                <button onclick="closePopup()" style="position: absolute; top: 15px; right: 15px; background: transparent; border: none; font-size: 1.5rem; color: #999; cursor: pointer; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center;">
+                    ✕
+                </button>
+                
+                <div style="margin-bottom: 20px;">
+                    <img src="discount-svgrepo-com.svg" alt="Discount" style="width: 100px; height: 100px; filter: hue-rotate(90deg) saturate(1.5);">
+                </div>
+                
+                <h2 style="color: #2d5f3f; margin-bottom: 15px; font-size: 1.8rem;">Wait! More 50% Off For You!</h2>
+                
+                <p style="color: #666; margin-bottom: 20px; font-size: 1.1rem;">
+                    We want to make this irresistible for you!
+                </p>
+                
+                <div style="background: linear-gradient(135deg, #4caf50, #45a049); color: white; padding: 25px; border-radius: 15px; margin: 20px 0;">
+                    <div style="font-size: 0.9rem; opacity: 0.9; margin-bottom: 5px;">Video Course Bundle</div>
+                    <div style="text-decoration: line-through; font-size: 1.2rem; opacity: 0.8; margin-bottom: 5px;">$19.99</div>
+                    <div style="font-size: 2.5rem; font-weight: 700; margin-bottom: 10px;">$9.99</div>
+                    <div style="background: rgba(255,255,255,0.3); display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: 700;">
+                        EXTRA 50% OFF
+                    </div>
+                </div>
+                
+                <div style="background: #f8f9f7; padding: 15px; border-radius: 10px; margin: 20px 0;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <span>Eating Healthy eBook</span>
+                        <span>$19.99</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px; color: #4caf50; font-weight: 600;">
+                        <span>Video Course (75% OFF)</span>
+                        <span>$9.99</span>
+                    </div>
+                    <div style="border-top: 2px solid #ddd; margin-top: 10px; padding-top: 10px; display: flex; justify-content: space-between; font-size: 1.3rem; font-weight: 700; color: #2d5f3f;">
+                        <span>Total</span>
+                        <span>$29.98</span>
+                    </div>
+                </div>
+                
+                <button onclick="acceptDiscount()" style="width: 100%; padding: 18px; background: #4caf50; color: white; border: none; border-radius: 30px; font-size: 1.1rem; font-weight: 700; cursor: pointer; margin-bottom: 10px;">
+                    Yes! Add Video Course for $9.99
+                </button>
+                
+                <button onclick="closePopup()" style="width: 100%; padding: 12px; background: transparent; border: 2px solid #999; border-radius: 30px; color: #666; cursor: pointer; font-size: 0.9rem;">
+                    No thanks, continue without videos
+                </button>
+            `;
+            
+            overlay.appendChild(popup);
+            document.body.appendChild(overlay);
+        }
+
+        function acceptDiscount() {
+            // Keep upsell checked and update to show discounted price
+            document.getElementById('upsellCheck').checked = true;
+            
+            // Update the upsell row to show new price
+            document.getElementById('upsellRow').innerHTML = '<span>Video Course Bundle <span style="background:#4caf50;color:white;padding:2px 8px;border-radius:10px;font-size:0.7rem;">75% OFF</span></span><span>$9.99</span>';
+            
+            // Update total
+            document.getElementById('totalPrice').textContent = '$29.98';
+            document.getElementById('btnTotal').textContent = '$29.98';
+            
+            closePopup();
+        }
+
+        function closePopup() {
+            const overlay = document.getElementById('discountOverlay');
+            if (overlay) {
+                overlay.remove();
+            }
+            
+            // If they still decline, uncheck the upsell
+            if (!document.getElementById('upsellCheck').checked) {
+                document.getElementById('upsellCheck').checked = false;
+                updateTotal();
+            }
+        }
+
+        function proceedPayment() {
+            const checkbox = document.getElementById('upsellCheck');
+            const hasVideo = checkbox.checked;
+            
+            // Check if discount was applied (video price is $9.99)
+            const isDiscounted = document.getElementById('upsellRow').innerHTML.includes('75% OFF');
+            
+            // Determine which checkout URL to use
+            let checkoutUrl;
+            
+            if (!hasVideo) {
+                // Book only - $19.99
+                checkoutUrl = 'https://checkout.dodopayments.com/buy/pdt_0NXJET4Qf0Ieqli4Mp6wQ?quantity=1';
+            } else if (isDiscounted) {
+                // Book + Discounted Video - $29.98
+                checkoutUrl = 'https://checkout.dodopayments.com/buy/pdt_0NXJEoeS9L1S3pXqDouHr?quantity=1';
+            } else {
+                // Book + Video - $39.98
+                checkoutUrl = 'https://checkout.dodopayments.com/buy/pdt_0NXJEvovUCrPUR7LvI5CA?quantity=1';
+            }
+            
+            // Redirect to Dodo Payments checkout
+            window.location.href = checkoutUrl;
+        }
+    </script>
+</body>
+</html>

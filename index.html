@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eating Healthy - Transform Your Life Through Nutrition</title>
+    <link rel="icon" type="image/png" href="Dark Green Illustrated Leaves Nature logo .png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <img src="Dark Green Illustrated Leaves Nature logo .png" alt="Eating Healthy Logo">
+                <span class="brand-name">Eating Healthy</span>
+            </div>
+            <nav class="nav">
+                <a href="#about">About</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#faq">FAQ</a>
+                <a href="#buy" class="cta-btn">Get Your Copy</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1 class="hero-title">Transform Your Life Through <span class="highlight">Healthy Eating</span></h1>
+            <p class="subtitle">Discover the ultimate guide to nourishing your body, mind, and soul with wholesome nutrition</p>
+            
+            <div class="hero-image">
+                <div class="book-slider">
+                    <div class="slider-container">
+                        <div class="book-mockup active">
+                            <img src="mainbook.png" alt="Eating Healthy Book Cover">
+                        </div>
+                        <div class="book-mockup">
+                            <img src="mainbook3.png" alt="Eating Healthy Book Preview 3">
+                        </div>
+                        <div class="book-mockup">
+                            <img src="mainbook4.png" alt="Eating Healthy Book Preview 4">
+                        </div>
+                        <div class="book-mockup">
+                            <img src="mainbook5.png" alt="Eating Healthy Book Preview 5">
+                        </div>
+                    </div>
+                    <button class="slider-btn prev" onclick="changeSlide(-1)">‹</button>
+                    <button class="slider-btn next" onclick="changeSlide(1)">›</button>
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="goToSlide(0)"></span>
+                        <span class="dot" onclick="goToSlide(1)"></span>
+                        <span class="dot" onclick="goToSlide(2)"></span>
+                        <span class="dot" onclick="goToSlide(3)"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rating-badge">
+                <div class="stars-large">★★★★★</div>
+                <p class="rating-text">4.9/5 from 2,847 readers</p>
+            </div>
+
+            <div class="price-section">
+                <span class="price-label">Limited Time Offer</span>
+                <div class="price-display">
+                    <span class="price">$19.99</span>
+                    <span class="urgency-badge">🔥 127 sold today</span>
+                </div>
+                <span class="price-subtext">Instant Digital Download • Lifetime Access</span>
+            </div>
+
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="buyNow()">
+                    <span class="btn-text">Buy Now - Instant Access</span>
+                    <span class="btn-subtext">Secure Checkout →</span>
+                </button>
+                <button class="btn btn-secondary" onclick="addToCart()">Add to Cart</button>
+            </div>
+            <div class="trust-badges">
+                <span>✓ Instant Download</span>
+                <span>✓ 30-Day Money Back</span>
+                <span>✓ Lifetime Access</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>What You'll Discover Inside</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🥗</div>
+                    <h3>Nutritional Foundations</h3>
+                    <p>Learn the science-backed principles of healthy eating and how to fuel your body optimally</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3>Meal Planning Made Easy</h3>
+                    <p>Simple strategies and templates to plan delicious, nutritious meals for the whole week</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🍎</div>
+                    <h3>Whole Food Recipes</h3>
+                    <p>100+ mouth-watering recipes using fresh, natural ingredients that nourish and satisfy</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💪</div>
+                    <h3>Sustainable Habits</h3>
+                    <p>Build lasting healthy eating habits that fit your lifestyle and support long-term wellness</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧘</div>
+                    <h3>Mindful Eating</h3>
+                    <p>Develop a positive relationship with food through mindfulness and intuitive eating practices</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Track Your Progress</h3>
+                    <p>Tools and worksheets to monitor your journey and celebrate your health victories</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="reviews-header">
+                <h2>What Our Readers Are Saying</h2>
+                <div class="overall-rating">
+                    <div class="rating-number">4.9</div>
+                    <div class="rating-details">
+                        <div class="stars-display">★★★★★</div>
+                        <p>Based on 2,847 reviews</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">SM</div>
+                            <div>
+                                <strong>Sarah Mitchell</strong>
+                                <div class="verified">✓ Verified Purchase</div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <h4 class="review-title">"Life-changing approach to nutrition"</h4>
+                    <p class="review-text">"This book completely changed my relationship with food. The recipes are delicious and the meal planning tips have saved me so much time! I've lost 12 pounds in 6 weeks without feeling deprived."</p>
+                    <div class="review-meta">3 days ago</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">MC</div>
+                            <div>
+                                <strong>Michael Chen</strong>
+                                <div class="verified">✓ Verified Purchase</div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <h4 class="review-title">"Finally, something that works!"</h4>
+                    <p class="review-text">"Finally, a nutrition guide that's practical and easy to follow. I've lost 15 pounds and feel more energized than ever! The science-backed approach makes so much sense."</p>
+                    <div class="review-meta">1 week ago</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">ER</div>
+                            <div>
+                                <strong>Emily Rodriguez</strong>
+                                <div class="verified">✓ Verified Purchase</div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <h4 class="review-title">"No more food stress"</h4>
+                    <p class="review-text">"The mindful eating section was a game-changer for me. I no longer stress about food and actually enjoy my meals more. This is the most balanced approach I've ever found."</p>
+                    <div class="review-meta">2 weeks ago</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">JT</div>
+                            <div>
+                                <strong>Jessica Thompson</strong>
+                                <div class="verified">✓ Verified Purchase</div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <h4 class="review-title">"Perfect for busy families"</h4>
+                    <p class="review-text">"As a busy mom of three, the quick meal prep strategies have been a lifesaver. My whole family is eating healthier now and my kids actually love the recipes!"</p>
+                    <div class="review-meta">3 weeks ago</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">DP</div>
+                            <div>
+                                <strong>David Park</strong>
+                                <div class="verified">✓ Verified Purchase</div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <h4 class="review-title">"Delicious AND healthy!"</h4>
+                    <p class="review-text">"The recipes are incredible! I never thought healthy food could taste this good. Worth every penny. I've already recommended it to 5 friends."</p>
+                    <div class="review-meta">1 month ago</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">AF</div>
+                            <div>
+                                <strong>Amanda Foster</strong>
+                                <div class="verified">✓ Verified Purchase</div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <h4 class="review-title">"Empowering and practical"</h4>
+                    <p class="review-text">"This book gave me the knowledge and confidence to take control of my health. The step-by-step approach makes it so easy to implement. Highly recommend!"</p>
+                    <div class="review-meta">1 month ago</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">RJ</div>
+                            <div>
+                                <strong>Robert Johnson</strong>
+                                <div class="verified">✓ Verified Purchase</div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <h4 class="review-title">"Best investment in my health"</h4>
+                    <p class="review-text">"I've tried countless diets and programs. This is different - it's sustainable and actually enjoyable. My energy levels are through the roof and I feel amazing!"</p>
+                    <div class="review-meta">2 months ago</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">LW</div>
+                            <div>
+                                <strong>Lisa Williams</strong>
+                                <div class="verified">✓ Verified Purchase</div>
+                            </div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                    </div>
+                    <h4 class="review-title">"Clear, actionable advice"</h4>
+                    <p class="review-text">"No fluff, just practical advice that works. The meal planning templates alone are worth the price. I've saved so much money on groceries too!"</p>
+                    <div class="review-meta">2 months ago</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Start Your Healthy Eating Journey Today</h2>
+            <p>Join thousands of people who have transformed their lives through better nutrition</p>
+            <div class="price-box">
+                <span class="price-large">$19.99</span>
+                <span class="price-note">One-time payment • Instant access</span>
+            </div>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" onclick="addToCart()">Add to Cart</button>
+                <button class="btn btn-secondary" onclick="buyNow()">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>What format is the ebook available in?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The ebook is available in PDF format, which can be read on any device including computers, tablets, and smartphones. You'll receive instant download access after purchase.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Is this suitable for beginners?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! "Eating Healthy" is designed for everyone, from complete beginners to those looking to refine their nutrition knowledge. We start with the basics and build up to more advanced concepts.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Do you offer a money-back guarantee?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We offer a 30-day money-back guarantee. If you're not completely satisfied with the ebook, simply contact us within 30 days for a full refund.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Are the recipes family-friendly?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! All recipes are designed to be enjoyed by the whole family. We focus on delicious, wholesome meals that everyone will love, not restrictive diet food.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>How soon will I receive the ebook?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Immediately! After completing your purchase, you'll receive an email with a download link. You can start reading within minutes.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Can I print the ebook?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, the PDF is print-friendly. You can print the entire book or just specific sections like recipes and meal planning templates.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <h3>Do you offer customer support?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! Our support team is here to help with any questions or technical issues. Contact us at support@eatinghealthly.shop.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="Dark Green Illustrated Leaves Nature logo .png" alt="Eating Healthy Logo">
+                    <p>Transform your life through healthy eating</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <a href="#about">About</a>
+                    <a href="#reviews">Reviews</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p>support@eatinghealthly.shop</p>
+                    <p>© 2026 Eating Healthy. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

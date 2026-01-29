@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Eating Healthy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #e8f5e9 0%, #f8f9f7 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            background: white;
+            border-radius: 30px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 60px rgba(45, 95, 63, 0.15);
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #4caf50, #45a049);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .checkmark {
+            width: 50px;
+            height: 50px;
+            border: 4px solid white;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .checkmark::after {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 5px;
+            width: 12px;
+            height: 22px;
+            border: solid white;
+            border-width: 0 4px 4px 0;
+            transform: rotate(45deg);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #2d5f3f;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        .order-summary {
+            background: #f8f9f7;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .order-summary h3 {
+            color: #2d5f3f;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+            font-weight: 600;
+            color: #2d5f3f;
+            font-size: 1.1rem;
+            padding-top: 15px;
+            margin-top: 10px;
+            border-top: 2px solid #2d5f3f;
+        }
+
+        .downloads {
+            margin-top: 40px;
+        }
+
+        .downloads h2 {
+            font-family: 'Playfair Display', serif;
+            color: #2d5f3f;
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+        }
+
+        .download-card {
+            background: linear-gradient(135deg, #2d5f3f, #4a8c5f);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .download-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(45, 95, 63, 0.3);
+        }
+
+        .download-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .download-card p {
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            background: white;
+            color: #2d5f3f;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        .support-box {
+            background: #fff8e1;
+            padding: 20px;
+            border-radius: 15px;
+            margin-top: 40px;
+            border: 2px solid #ffa726;
+        }
+
+        .support-box h4 {
+            color: #d84315;
+            margin-bottom: 10px;
+        }
+
+        .support-box p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 25px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .downloads h2 {
+                font-size: 1.5rem;
+            }
+
+            .download-card {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-icon">
+            <div class="checkmark"></div>
+        </div>
+
+        <h1>Thank You for Your Purchase!</h1>
+        <p class="subtitle">Your order has been confirmed. Download your eBook below.</p>
+
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <div class="order-item"><span>Eating Healthy eBook</span><span>$19.99</span></div>
+            <div class="order-item"><span>Total Paid</span><span>$19.99</span></div>
+        </div>
+
+        <div class="downloads">
+            <h2>📥 Download Your Product</h2>
+            
+            <div class="download-card">
+                <h3>📚 Eating Healthy eBook</h3>
+                <p>Complete guide to transforming your life through nutrition</p>
+                <a href="https://s3.amazonaws.com/eh-plr/EH-product/Module1-Ebook.zip" download>
+                    <button class="download-btn">
+                        <span>⬇️</span>
+                        <span>Download eBook</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+
+        <div class="support-box">
+            <h4>Need Help?</h4>
+            <p>If you have any issues downloading your product, please contact us at <strong>support@eatinghealthly.shop</strong></p>
+        </div>
+    </div>
+</body>
+</html>

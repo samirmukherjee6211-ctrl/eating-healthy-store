@@ -1,0 +1,19 @@
+{
+  "name": "eating-healthy-store",
+  "version": "1.0.0",
+  "description": "Premium ecommerce store for Eating Healthy eBook and video courses",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "preview": "open http://localhost:8000"
+  },
+  "keywords": [
+    "ebook",
+    "healthy-eating",
+    "nutrition",
+    "ecommerce"
+  ],
+  "author": "Eating Healthy",
+  "license": "UNLICENSED",
+  "private": true
+}
