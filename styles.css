@@ -119,8 +119,10 @@ h1, h2, h3 {
 .hero-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 40px;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .hero-title {
@@ -204,14 +206,14 @@ h1, h2, h3 {
 }
 
 .urgency-badge {
-    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    background: linear-gradient(135deg, var(--light-green), var(--accent-green));
     color: white;
     padding: 8px 18px;
     border-radius: 30px;
     font-weight: 600;
     font-size: 0.9rem;
     white-space: nowrap;
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    box-shadow: 0 4px 15px rgba(74, 140, 95, 0.3);
     animation: pulse 2s infinite;
 }
 
@@ -1633,38 +1635,131 @@ h1, h2, h3 {
 
 /* Desktop improvements */
 @media (min-width: 969px) {
-    .hero-content {
-        align-items: start;
-        gap: 80px;
+    .container {
+        max-width: 1200px;
+        padding: 0 40px;
     }
     
+    .hero {
+        padding: 60px 0;
+    }
+    
+    .hero-content {
+        display: grid;
+        grid-template-columns: 1fr 400px;
+        gap: 50px;
+        align-items: start;
+    }
+    
+    /* Left column - Title, subtitle, and image */
     .hero-title {
-        margin-bottom: 20px;
+        grid-column: 1;
+        grid-row: 1;
+        margin-bottom: 15px;
+        font-size: 2.8rem;
     }
     
     .subtitle {
-        margin-bottom: 25px;
-    }
-    
-    .rating-badge {
-        margin-bottom: 25px;
-    }
-    
-    .price-section {
+        grid-column: 1;
+        grid-row: 2;
         margin-bottom: 30px;
+        font-size: 1.1rem;
     }
     
-    .cta-buttons {
-        margin-bottom: 25px;
+    .hero-image {
+        grid-column: 1;
+        grid-row: 3 / 8;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-top: 0;
     }
     
     .book-slider {
         max-width: 450px;
+        width: 100%;
     }
     
-    .hero-image {
-        display: flex;
-        justify-content: center;
+    .book-mockup img {
+        max-width: 450px;
+    }
+    
+    /* Right sidebar - Sticky pricing card */
+    .rating-badge {
+        grid-column: 2;
+        grid-row: 3;
+        margin-bottom: 15px;
+    }
+    
+    .price-section {
+        grid-column: 2;
+        grid-row: 4;
+        margin-bottom: 15px;
+        padding: 35px 30px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 8px 30px rgba(45, 95, 63, 0.12);
+        border: 2px solid var(--border-light);
+    }
+    
+    .price-section .price-label {
+        text-align: center;
+        display: block;
+        margin-bottom: 12px;
+    }
+    
+    .price-section .price-display {
+        flex-direction: column;
         align-items: center;
+        gap: 12px;
+    }
+    
+    .price-section .price-subtext {
+        text-align: center;
+        display: block;
+        margin-top: 8px;
+    }
+    
+    .cta-buttons {
+        grid-column: 2;
+        grid-row: 5;
+        margin-bottom: 15px;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .trust-badges {
+        grid-column: 2;
+        grid-row: 6;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 0;
+    }
+    
+    .trust-badges span {
+        font-size: 0.9rem;
+    }
+    
+    /* Reviews section - 4 columns for better spacing */
+    .reviews-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .review-card {
+        padding: 25px 20px;
     }
 }

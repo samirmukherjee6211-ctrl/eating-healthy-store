@@ -4,6 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - Eating Healthy</title>
+    
+    <!-- Facebook Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '3965984697032741');
+    fbq('track', 'PageView');
+    fbq('track', 'InitiateCheckout', {
+        value: 19.99,
+        currency: 'USD'
+    });
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=3965984697032741&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
 </head>
 <body style="background: #f8f9f7; font-family: Arial, sans-serif; margin: 0; padding: 20px;">
     
@@ -194,11 +216,9 @@
                 overlay.remove();
             }
             
-            // If they still decline, uncheck the upsell
-            if (!document.getElementById('upsellCheck').checked) {
-                document.getElementById('upsellCheck').checked = false;
-                updateTotal();
-            }
+            // Uncheck the upsell checkbox when closing popup
+            document.getElementById('upsellCheck').checked = false;
+            updateTotal();
         }
 
         function proceedPayment() {
@@ -213,13 +233,13 @@
             
             if (!hasVideo) {
                 // Book only - $19.99
-                checkoutUrl = 'https://checkout.dodopayments.com/buy/pdt_0NXJET4Qf0Ieqli4Mp6wQ?quantity=1';
+                checkoutUrl = 'https://dodo.pe/no12';
             } else if (isDiscounted) {
                 // Book + Discounted Video - $29.98
-                checkoutUrl = 'https://checkout.dodopayments.com/buy/pdt_0NXJEoeS9L1S3pXqDouHr?quantity=1';
+                checkoutUrl = 'https://dodo.pe/no14';
             } else {
                 // Book + Video - $39.98
-                checkoutUrl = 'https://checkout.dodopayments.com/buy/pdt_0NXJEvovUCrPUR7LvI5CA?quantity=1';
+                checkoutUrl = 'https://dodo.pe/no13';
             }
             
             // Redirect to Dodo Payments checkout
